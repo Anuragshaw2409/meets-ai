@@ -1,0 +1,34 @@
+{
+  "name": "botserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"npm run server\" \"npm run agent:dev\"",
+    "server": "node --env-file=.env dist/index.js",
+    "agent:dev": "node --env-file=.env dist/agent.js dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@livekit/agents": "^1.2.3",
+    "@livekit/agents-plugin-deepgram": "^1.2.3",
+    "@livekit/agents-plugin-elevenlabs": "^1.2.3",
+    "@livekit/agents-plugin-google": "^1.2.3",
+    "@livekit/agents-plugin-openai": "^1.2.3",
+    "@livekit/agents-plugin-silero": "^1.2.3",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "concurrently": "^9.2.1",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.0",
+    "express": "^5.2.1",
+    "livekit-server-sdk": "^2.15.0",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.2"
+  }
+}
