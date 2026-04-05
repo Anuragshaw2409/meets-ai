@@ -265,7 +265,9 @@ function FloatingShareModal() {
       }}
     >
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <h3 style={{ margin: 0, fontSize: '1.1rem', fontWeight: 600 }}>Your meeting's ready</h3>
+        <h3 style={{ margin: 0, fontSize: '1.1rem', fontWeight: 600 }}>
+          Your meeting&apos;s ready
+        </h3>
         <button
           onClick={() => setVisible(false)}
           style={{

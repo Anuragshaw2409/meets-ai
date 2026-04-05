@@ -12,6 +12,9 @@ const nextConfig = {
       enforce: 'pre',
       use: ['source-map-loader'],
     });
+   config.ignoreWarnings = [
+      { module: /node_modules\/@mediapipe\/tasks-vision/ },
+    ];
 
     return config;
   },
