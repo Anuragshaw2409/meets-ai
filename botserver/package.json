@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently \"npm run server\" \"npm run agent:dev\"",
-    "server": "node --env-file=.env dist/index.js",
-    "agent:dev": "node --env-file=.env dist/agent.js dev"
+    "server": "node  dist/index.js",
+    "agent:dev": "node dist/agent.js dev"
   },
   "keywords": [],
   "author": "",

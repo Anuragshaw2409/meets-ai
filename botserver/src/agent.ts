@@ -9,6 +9,8 @@ import {
 import * as deepgram from '@livekit/agents-plugin-deepgram';
 import * as silero from '@livekit/agents-plugin-silero';
 import * as OpenAI from '@livekit/agents-plugin-openai';
+import { config } from 'dotenv';
+config();
 // import { fileURLToPath } from 'node:url';
 
 export default defineAgent({
@@ -33,7 +35,7 @@ export default defineAgent({
                 apiKey: process.env.DEEPGRAM_API_KEY!,
             }),
             llm: new OpenAI.LLM({
-                model: 'openai/gpt-oss-120b:free',
+                model: 'openai/gpt-oss-20b:free',
                 apiKey: process.env.OPENAI_API_KEY!,
                 baseURL: "https://openrouter.ai/api/v1"
             }),
@@ -44,7 +46,7 @@ export default defineAgent({
         });
 
         // 3. Start — connects session to the room
-        await session.start({ agent, room: ctx.room });
+        await session.start({ agent, room: ctx.room, });
 
         // 4. Kick off with a greeting
         await session.generateReply();

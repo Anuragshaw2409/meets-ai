@@ -37,6 +37,8 @@ const agents_1 = require("@livekit/agents");
 const deepgram = __importStar(require("@livekit/agents-plugin-deepgram"));
 const silero = __importStar(require("@livekit/agents-plugin-silero"));
 const OpenAI = __importStar(require("@livekit/agents-plugin-openai"));
+const dotenv_1 = require("dotenv");
+(0, dotenv_1.config)();
 // import { fileURLToPath } from 'node:url';
 exports.default = (0, agents_1.defineAgent)({
     // prewarm: load VAD model once per process, not per session
@@ -57,7 +59,7 @@ exports.default = (0, agents_1.defineAgent)({
                 apiKey: process.env.DEEPGRAM_API_KEY,
             }),
             llm: new OpenAI.LLM({
-                model: 'openai/gpt-oss-120b:free',
+                model: 'openai/gpt-oss-20b:free',
                 apiKey: process.env.OPENAI_API_KEY,
                 baseURL: "https://openrouter.ai/api/v1"
             }),
@@ -67,7 +69,7 @@ exports.default = (0, agents_1.defineAgent)({
             }),
         });
         // 3. Start — connects session to the room
-        await session.start({ agent, room: ctx.room });
+        await session.start({ agent, room: ctx.room, });
         // 4. Kick off with a greeting
         await session.generateReply();
     },
